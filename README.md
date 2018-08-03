@@ -3,7 +3,7 @@ Z80 computer wirewrapped on perfboard
 
 ![Image](NKZ80montage-small.png)
 
-This Z80 board was inspired by Grant Searle's "9-chip" design, but using a GAL for most of the glue logic takes the chip count to 6!
+This Z80 board was inspired by Grant Searle's "9-chip" design, but using a GAL for most of the glue logic takes the chip count to 6! This board does not yet have the compact flash/IDE interface fitted. For more details of what the board can do, see Grant's original documentation:
 
 Original inspiration: http://searle.hostei.com/grant/cpm/index.html
 
