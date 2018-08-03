@@ -11,9 +11,7 @@ Original inspiration: http://searle.hostei.com/grant/cpm/index.html
 
 ![Image](schematic.png)
 
-The glue logic in the original design has been replaced with a Lattice GAL20V8; the WINCUPL .PLD source file and .JED file for the programmer of your choice are provided.
-
-The unit in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA with the following components:
+# Components
 
 * Mostek MK3880N-4 (4Mhz Z80 CPU - NMOS)
 * Zilog Z80SIO/0 (Z8440AB1 - NMOS)
@@ -22,7 +20,11 @@ The unit in the photo is powered via the USB-to-TTL adapter, drawing a current o
 * 74HCT00 Quad NAND gate - this MUST be an 74HCT part; the clock circuit is not likely to work with anything else (74LS, HC etc.)
 * Lattice GAL20V8B-25LP
 
-Subtituting CMOS parts for the CPU and SIO would reduce supply current. If you choose to use a separate 5V support for the board, remember to keep the GND/0V line of the USB-TTL adapter connect, but disconnect its 5V line - do not try to use two power sources at the same time.
+The glue logic in the original design has been replaced with a Lattice GAL20V8; the WINCUPL .PLD source file and .JED file for the programmer of your choice are provided.
+
+The unit in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA - which is probably pushing the poor adapter a tad. Subtituting CMOS parts for the CPU and SIO would reduce supply current. 
+
+If you choose (probably somewhat wisely) to use a separate 5V supply for the board, remember to keep the GND/0V line of the USB-TTL adapter connected, but disconnect its 5V line - do not try to use two power sources at the same time.
 
 You may find that the USB-TTL adapter resets when plugged into the board; this seems to be due to the inrush current. 
 
