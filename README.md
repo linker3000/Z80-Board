@@ -28,5 +28,5 @@ If you choose (probably somewhat wisely) to use a separate 5V supply for the boa
 
 You may find that the USB-TTL adapter resets when plugged into the board; this seems to be due to the inrush current. 
 
-Because 4MHz parts were used to test the design, this board is fitted with a 3.6864Mhz crystal and the serial interface runs at 57,600BPS. If faster spec parts are used then the board should run at the original clock speed of 7.3728Mhz, with a serial speed of 115,200BPS. You might get away with overclocking a 4Mhz Z80 CPU (for a while at least!), but the SIO chips are more fussy. 
+Because 4Mhz parts were used to test the design, this board is fitted with a 3.6864Mhz crystal and the serial interface runs at 57,600BPS. If faster spec parts are used then the board should run at the original clock speed of 7.3728Mhz, with a serial speed of 115,200BPS. You might get away with overclocking a 4Mhz Z80 CPU (for a while at least!), but the SIO chips are more fussy. 
 
