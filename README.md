@@ -15,8 +15,8 @@ The glue logic in the original design has been replaced with a Lattice GAL20V8; 
 
 The unit in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA with the following components:
 
-* Mostek MK3880N-4 (4Mhz Z80 CPU)
-* Zilog Z80SIO/0 (Z8440AB1)
+* Mostek MK3880N-4 (4Mhz Z80 CPU - NMOS)
+* Zilog Z80SIO/0 (Z8440AB1 - NMOS)
 * TMS27C128-25 EPROM
 * HM628128 1M (128Kx8) SRAM ('half-used' as in the original design - probably because the part is cheap or was to hand)
 * 74HCT00 Quad NAND gate - this MUST be an 74HCT part; the clock circuit is not likely to work with anything else (74LS, HC etc.)
