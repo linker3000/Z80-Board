@@ -15,7 +15,7 @@ The glue logic in the original design has been replaced with a Lattice GAL20V8; 
 
 The unit in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA with the following components:
 
-* Mostek MK3880N (4Mhz Z80 CPU)
+* Mostek MK3880N-4 (4Mhz Z80 CPU)
 * Zilog Z80SIO/0 (Z8440AB1)
 * TMS27C128-25 EPROM
 * HM628128 1M (128Kx8) SRAM ('half-used' as in the original design - probably because the part is cheap or was to hand)
