@@ -13,6 +13,8 @@ Original inspiration: http://searle.hostei.com/grant/cpm/index.html
 
 # Components
 
+These parts were used for initial testing:
+
 * Mostek MK3880N-4 (4Mhz Z80 CPU - NMOS)
 * Zilog Z80SIO/0 (Z8440AB1 - NMOS)
 * TMS27C128-25 EPROM
@@ -22,7 +24,7 @@ Original inspiration: http://searle.hostei.com/grant/cpm/index.html
 
 The glue logic in the original design has been replaced with a Lattice GAL20V8; the WINCUPL .PLD source file and .JED file for the programmer of your choice are provided.
 
-The unit in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA - which is probably pushing the poor adapter a tad. Subtituting CMOS parts for the CPU and SIO would reduce supply current. 
+The board in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA - which is probably pushing the poor adapter a tad. Subtituting CMOS parts for the CPU and SIO will reduce supply current - for example, using a CMOS Z80 brings the load down to 100mA.
 
 If you choose (probably somewhat wisely) to use a separate 5V supply for the board, remember to keep the GND/0V line of the USB-TTL adapter connected, but disconnect its 5V line - do not try to use two power sources at the same time.
 
