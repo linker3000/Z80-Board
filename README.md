@@ -11,7 +11,7 @@ Original inspiration: http://searle.hostei.com/grant/cpm/index.html
 
 ![Image](schematic.png)
 
-The glue logic in the original design has been replaced with a Lattice GAL20V8; the WINCUPL .PLD source file and ,JED file for the programmer of your choice are provided.
+The glue logic in the original design has been replaced with a Lattice GAL20V8; the WINCUPL .PLD source file and .JED file for the programmer of your choice are provided.
 
 The unit in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA with the following components:
 
