@@ -36,6 +36,8 @@ Because 4Mhz parts were used to test the design, this board is fitted with a 3.6
 
 Also in the repo is the classic SUPER STARTREK from 1978, modified to run on this platform. The main changes were to restrict line lengths to below 80 characters, re-writing the conditional statements accordingly, and to remove the print-formatting 'USING' command, which is not supported. 
 
+![Image](trek1-800.jpg)
+
 The main program is STARTREK.BAS. TRKINST.BAS prints the instructions and in the original program was chain-loaded upon request,  but that feature has not been implemented so it's best to just read the source if you need guidance.
 
 The code loads via Tera Term using its copy-and-paste feature. PuTTY causes buffer overflows.
