@@ -7,6 +7,8 @@ This Z80 board was inspired by Grant Searle's "9-chip" design, but using a GAL f
 
 Original inspiration: http://searle.hostei.com/grant/cpm/index.html
 
+More pictures here: https://imgur.com/a/rGRR2NM
+
 # Schematic
 
 ![Image](schematic.png)
