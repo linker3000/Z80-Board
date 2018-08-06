@@ -32,13 +32,29 @@ You may find that the USB-TTL adapter resets when plugged into the board; this s
 
 Because 4Mhz parts were used to test the design, this board is fitted with a 3.6864Mhz crystal and the serial interface runs at 57,600BPS. If faster spec parts are used then the board should run at the original clock speed of 7.3728Mhz, with a serial speed of 115,200BPS. You might get away with overclocking a 4Mhz Z80 CPU (for a while at least!), but the SIO chips are more fussy. 
 
-# Bonus Game
+# Bonus Games
 
-Also in the repo is the classic SUPER STARTREK from 1978, modified to run on this platform. The main changes were to restrict line lengths and/or split long lines into multiples, re-writing the conditional statements accordingly, and to remove the print-formatting 'USING' command, which is not supported. 
+Modified to work on this plaftorm and Microsoft Z80 BASIC Ver 4.7b
+
+SUPER STARTREK
+
+In the repo is the classic SUPER STARTREK from 1978, modified to run on this platform. The main changes were to restrict line lengths and/or split long lines into multiples, re-writing the conditional statements accordingly, and to remove the print-formatting 'USING' command, which is not supported. 
 
 ![Image](trek1-800.jpg)
 
 The main program is STARTREK.BAS. TRKINST.BAS prints the instructions and in the original program was chain-loaded upon request,  but that feature has not been implemented so it's best to just read the source if you need guidance.
+
+MAZE
+
+Draws an ASCII maze (eventually, for big ones!)
+
+BUNNY
+
+ASCII bunny (well, 'Rabbit' now)
+
+ELIZA
+
+Early AI - Let Eliza sort out your troubles (not to be taken seriously)
 
 The code loads via Tera Term using its copy-and-paste feature. PuTTY causes buffer overflows.
 
