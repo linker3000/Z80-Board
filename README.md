@@ -34,11 +34,11 @@ Because 4Mhz parts were used to test the design, this board is fitted with a 3.6
 
 # Bonus Games
 
-Modified to work on this plaftorm and Microsoft Z80 BASIC Ver 4.7b
+Modified to work on this platform and Microsoft Z80 BASIC Ver 4.7b
 
 SUPER STARTREK
 
-In the repo is the classic SUPER STARTREK from 1978, modified to run on this platform. The main changes were to restrict line lengths and/or split long lines into multiples, re-writing the conditional statements accordingly, and to remove the print-formatting 'USING' command, which is not supported. 
+The classic SUPER STARTREK from 1978. The main changes were to restrict line lengths and/or split long lines into multiples, re-writing the conditional statements accordingly, and to remove the print-formatting 'USING' command, which is not supported. 
 
 ![Image](trek1-800.jpg)
 
