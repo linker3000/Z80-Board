@@ -26,9 +26,9 @@ These parts were used for initial testing:
 
 The GAL needs programming - I used the low-cost TL866 'universal programmer' (IMPORTANT: Untick 'Encrypt Ch' otherwise the GAL may not program correctly). The .JED file is ready to upload to the programmer. If you want to edit/change the source .PLD file, you will need a copy of WinCUPL (free from https://www.microchip.com/design-centers/programmable-logic/spld-cpld/tools/software/wincupl) or another CUPL editor.
 
-The board in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA - which is probably pushing the poor adapter a tad. Subtituting CMOS parts for the CPU and SIO will reduce supply current; using a CMOS Z80 brings the load down to 100mA.
+The board in the photo is powered via the USB-to-TTL adapter, drawing a current of about 170mA - which is probably pushing the poor adapter a tad. Substituting CMOS parts for the CPU and SIO will reduce supply current; using a CMOS Z80 brings the load down to 100mA.
 
-If you choose (probably somewhat wisely) to use a separate 5V supply for the board, remember to keep the GND/0V line of the USB-TTL adapter connected, but disconnect its 5V line - do not try to use two power sources at the same time.
+If you use a discrete 5V supply for the board, remember to keep the GND/0V line of the USB-TTL adapter connected but disconnect its 5V line - do not try to use two power sources at the same time.
 
 You may find that the USB-TTL adapter resets when plugged into the board; this seems to be due to the inrush current. 
 
