@@ -22,7 +22,7 @@ These parts were used for initial testing:
 * TMS27C128-25 EPROM
 * HM628128 1M (128Kx8) SRAM ('half-used' as in the original design - probably because the part is cheap or was to hand)
 * 74HCT00 Quad NAND gate - this MUST be an 74HCT part; the clock circuit is not likely to work with anything else (74LS, HC etc.)
-* Lattice GAL20V8B-25LP - programmed using a TL866II device prorammer/tester
+* Lattice GAL20V8B-25LP - programmed using a TL866II device programmer/tester
 
 The GAL needs programming - I used the low-cost TL866 'universal programmer' (IMPORTANT: Untick 'Encrypt Ch' otherwise the GAL may not program correctly). The .JED file is ready to upload to the programmer. If you want to edit/change the source .PLD file, you will need a copy of WinCUPL (free from https://www.microchip.com/design-centers/programmable-logic/spld-cpld/tools/software/wincupl) or another CUPL editor.
 
