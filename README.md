@@ -58,6 +58,19 @@ ELIZA
 
 Early AI - Let Eliza sort out your troubles (not to be taken seriously)
 
-The code loads via Tera Term using its copy-and-paste feature. PuTTY causes buffer overflows.
+all code loads via Tera Term using its copy-and-paste feature. PuTTY causes buffer overflows.
 
 Let me know if anything needs further modification...and enjoy some retro gaming!
+
+### More Pictures
+
+Details of the wirewrapping and then showing the addition of an I/O port - circuit very similar to https://rc2014.co.uk/modules/digital-io/
+
+![Image](trek3.jpg)
+
+![Image](trek4.jpg)
+
+![Image](trek5.jpg)
+
+
+
