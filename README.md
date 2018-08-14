@@ -66,11 +66,11 @@ Let me know if anything needs further modification...and enjoy some retro gaming
 
 Details of the wirewrapping and then showing the addition of an I/O port - circuit very similar to https://rc2014.co.uk/modules/digital-io/
 
-![Image](trek3.jpg)
+![Image](z80-3.jpg)
 
-![Image](trek4.jpg)
+![Image](z80-4.jpg)
 
-![Image](trek5.jpg)
+![Image](z80-5.jpg)
 
 
 
