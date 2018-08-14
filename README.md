@@ -64,7 +64,7 @@ Let me know if anything needs further modification...and enjoy some retro gaming
 
 ### More Pictures
 
-Details of the wirewrapping and then showing the addition of an I/O port - circuit very similar to https://rc2014.co.uk/modules/digital-io/
+More details of the wirewrapping and then showing the addition of an I/O port - circuit very similar to https://rc2014.co.uk/modules/digital-io/
 
 ![Image](z80-3.jpg)
 
