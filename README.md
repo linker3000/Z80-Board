@@ -46,9 +46,9 @@ More details of the wirewrapping and the addition of an I/O port (74LS245 output
 
 The pics below show the board nearing completion: The CF card adaptor has been wired in as well as the power input with 5V switch-mode regulator (no heatsink needed!) - the total current consumption with the CF card in place is 175mA with an 8V external supply. The board is now able to boot CP/M:
 
-![Image](z80-3.jpg)
-
 ![Image](board-cf-psu.jpg)
+
+![Image](cpm.png)
 
 # Bonus Games
 
