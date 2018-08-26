@@ -49,6 +49,7 @@ The pics below show the board nearing completion: The CF card adaptor has been w
 ![Image](board-cf-psu.jpg)
 
 ![Image](cpm.png)
+![Image](zork1a.png)
 
 # Bonus Games
 
