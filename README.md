@@ -34,6 +34,22 @@ You may find that the USB-TTL adapter resets when plugged into the board; this s
 
 Because 4Mhz parts were used to test the design, this board is fitted with a 3.6864Mhz crystal and the serial interface runs at 57,600BPS. If faster spec parts are used then the board should run at the original clock speed of 7.3728Mhz, with a serial speed of 115,200BPS. You might get away with overclocking a 4Mhz Z80 CPU (for a while at least!), but the SIO chips are more fussy. 
 
+### More Pictures
+
+More details of the wirewrapping and the addition of an I/O port (74LS245 output port wiring to be completed) - circuit very similar to https://rc2014.co.uk/modules/digital-io/
+
+![Image](z80-3.jpg)
+
+![Image](z80-4.jpg)
+
+![Image](z80-5.jpg)
+
+The pics below show the board nearing completion: The CF card adaptor has been wired in as well as the power input with 5V switch-mode regulator (no heatsink needed!) - the total current consumption with the CF card in place is 175mA with an 8V external supply. The board is now able to boot CP/M:
+
+![Image](z80-3.jpg)
+
+![Image](board-cf-psu.jpg)
+
 # Bonus Games
 
 Modified to work on this platform and Microsoft Z80 BASIC Ver 4.7b
@@ -61,16 +77,5 @@ Early AI - Let Eliza sort out your troubles (not to be taken seriously)
 all code loads via Tera Term using its copy-and-paste feature. PuTTY causes buffer overflows.
 
 Let me know if anything needs further modification...and enjoy some retro gaming!
-
-### More Pictures
-
-More details of the wirewrapping and then showing the addition of an I/O port (74LS245 wiring to be completed) - circuit very similar to https://rc2014.co.uk/modules/digital-io/
-
-![Image](z80-3.jpg)
-
-![Image](z80-4.jpg)
-
-![Image](z80-5.jpg)
-
 
 
