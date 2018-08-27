@@ -75,7 +75,9 @@ ELIZA
 
 Early AI - Let Eliza sort out your troubles (not to be taken seriously)
 
-all code loads via Tera Term using its copy-and-paste feature. PuTTY causes buffer overflows.
+---
+
+All the above code loads via Tera Term using its copy-and-paste feature. 
 
 Let me know if anything needs further modification...and enjoy some retro gaming!
 
