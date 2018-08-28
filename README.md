@@ -68,7 +68,7 @@ There's a 15uF 35V tantalum decoupling capacitor on the input side of the regula
 
 ### More Pictures
 
-These pictures show the I/O port (74LS245 output port wiring not done yet); the circuit is very similar to the digital I/O port of the RC2014 Z80 kit: https://rc2014.co.uk/modules/digital-io/
+A view showing the decoupling caps (the ones for the 40-pin chips are under the sockets), a closeup of the wirewrapping, and then with the I/O port nearly done (74LS245 output port wiring missing); the I/O circuit is very similar to the digital I/O port of the RC2014 Z80 kit: https://rc2014.co.uk/modules/digital-io/
 
 ![Image](z80-3.jpg)
 
@@ -76,7 +76,7 @@ These pictures show the I/O port (74LS245 output port wiring not done yet); the 
 
 ![Image](z80-5.jpg)
 
-The pics below show the board nearing completion: The CF card adaptor has been wired up together with the 5V switching  regulator. The total current consumption with the CF card in place is 175mA with an 8V external supply. The board is now able to boot CP/M:
+The final pics below show the board nearing completion: The CF card adaptor has been wired up together with the 5V switching regulator. The total current consumption with the CF card in place is 175mA with an 8V external supply. The board is now able to boot CP/M:
 
 ![Image](board-cf-psu.jpg)
 
