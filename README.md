@@ -51,7 +51,7 @@ The I/O port comprises:
 * 73HCT138 3-to-8 decoder
 * 74LS245 TTL octal bus transceiver (hard wired for input only) 
 * 74HCT374 octal D-type flip flop driving the LEDs
-* 6 x 1N4148 signal diode as an address decoding OR gate
+* 6 x 1N4148 signal diodes as an address decoding OR gate
 * 8 x green LEDs
 * 8 x 390 ohm resistors
 * 8 x 2K2 resistors
