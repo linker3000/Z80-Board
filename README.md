@@ -82,6 +82,7 @@ The final pics below show the board nearing completion: The CF card adaptor has 
 
 ![Image](cpm.png)
 ![Image](zork1a.png)
+![Image](wordstar.png)
 
 ---
 
