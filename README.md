@@ -48,9 +48,9 @@ Because 4Mhz parts were used, this board is fitted with a 3.6864Mhz crystal and 
 
 The I/O port comprises:
 
-* 73HCT138 3-to-8 decoder
+* 74HCT138 3-to-8 decoder
 * 74LS245 TTL octal bus transceiver (hard wired for input only) 
-* 74F374 octal D-type flip flop driving the LEDs (74LS or HCT 374 versions would be fine)
+* 74F374 octal D-type flip flop driving the LEDs (74LS or HCT374 would be fine)
 * 6 x 1N4148 signal diodes as an address decoding OR gate
 * 8 x green LEDs
 * 8 x 390 ohm resistors
