@@ -21,6 +21,8 @@ In the early stages the board was powered via the USB-to-TTL serial adapter, dra
 
 If you use a discrete 5V supply for the board, remember to keep the GND/0V line of the USB-TTL adapter connected but disconnect its 5V line - do not try to use two power sources at the same time.
 
+IMPORTANT: Note the jumper on SIO pin 18 (CTSA). This pin must be grounded if PORT A is not in use or the line is not being driven. If not, PORT B won't function and you'll get no terminal. 
+
 More pictures here: https://imgur.com/a/rGRR2NM
 
 # Schematic
