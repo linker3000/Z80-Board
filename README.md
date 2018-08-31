@@ -88,13 +88,13 @@ The final pics below show the board nearing completion: The CF card adaptor has 
 
 ---
 
-# Bonus Games
-
-Modified to work on this platform and Microsoft Z80 BASIC Ver 4.7b (which boots from ROM)
+# Bonus Programs
 
 SUPER STARTREK
 
-The classic SUPER STARTREK from 1978. The main changes were to restrict line lengths and/or split long lines into multiples, re-writing the conditional statements accordingly, and to remove the print-formatting 'USING' command, which is not supported. 
+Modified to work on Microsoft Z80 BASIC Ver 4.7b (which boots from ROM). The classic SUPER STARTREK from 1978. The main changes were to restrict line lengths and/or split long lines into multiples, re-writing the conditional statements accordingly, and to remove the print-formatting 'USING' command, which is not supported. 
+
+If you are after a version that runs on mbasic on CP/M, see: https://github.com/RC2014Z80/RC2014/blob/master/BASIC-Programs/Super%20Startrek/startrek.bas
 
 ![Image](trek1-800.jpg)
 
@@ -112,9 +112,13 @@ ELIZA
 
 Early AI - Let Eliza sort out your troubles (not to be taken seriously)
 
+NKLED2.PAS
+
+If you implement the simple I/O port, this program controls the LEDs. Written for Turbo Pascal 3 on CP/M, so you'll need to install that! 
+
 ---
 
-All the above code loads via Tera Term using its copy-and-paste feature. 
+All the above code loads via Tera Term using its copy-and-paste feature or by using Grant Searle's file uploader for CP/M: http://searle.hostei.com/grant/cpm/index.html#InstallingApplications 
 
 Let me know if anything needs further modification...and enjoy some retro gaming!
 
