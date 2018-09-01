@@ -1,5 +1,15 @@
 # Z80-Board
-Z80 computer wirewrapped on perfboard
+Z80 computer wirewrapped on perfboard.
+
+The wirewrapping technique uses standard IC sockets and PCB header pins, so the components and wiring are on the same side of the board; this has many benefits:
+
+* It's easier to see what you are connecting together.
+* It creates a very neat and compact layout. 
+* Reworking is quicker and easier.
+* No messy 'mat of wires' on the underside.
+* Wirewrapping IC sockets are becoming expensive and harder to source. 
+
+The construction technique can be seen in the photos: rows of header pins are placed alongside each IC socket and the two are solder-bridged on the copper side. Using perfboard, rather than stripboard, means there's no track cutting needed.
 
 ![Image](NKZ80montage-small.png)
 
