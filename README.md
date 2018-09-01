@@ -46,13 +46,16 @@ The core parts are:
 * Mostek MK3880N-4 (4Mhz Z80 CPU - NMOS)
 * Zilog Z80SIO/0 (Z8440AB1 - NMOS)
 * TMS27C128-25 EPROM
-* HM628128 1M (128Kx8) SRAM ('half-used' as in the original design)
-* 74HCT00 Quad NAND gate - this MUST be an 74HCT part; the clock circuit is not likely to work with anything else (74LS, HC etc.)
+* HM628128 1M (128Kx8) SRAM (half-used, as in the original design)
+* 74HCT00 quad NAND gate - see note below 
 * Lattice GAL20V8B-25LP - programmed using a TL866II device programmer/tester
 * Each chip is decoupled by a 100nF ceramic capacitor
 * Lots of male header pins for the wirewrapping
+* Indicator LEDs and resistors (see schematic)
 * IC sockets
-* See the schematic for other miscellaneous parts
+* See the schematic for other parts e.g.: the reset circuit, other resistors and connectors. 
+
+NAND gate: This should be a 74HCT part (or can also be a 74AC if you are using a CMOS CPU and SIO). Other types (74LS, 74F etc.) won't oscillate.
 
 The GAL needs programming - I used the low-cost TL866 'universal programmer' (IMPORTANT: Untick 'Encrypt Ch' otherwise the GAL may not program correctly). The .JED file is ready to upload to the programmer. If you want to edit/change the source .PLD file, you will need a copy of WinCUPL (free from https://www.microchip.com/design-centers/programmable-logic/spld-cpld/tools/software/wincupl) or another CUPL editor.
 
