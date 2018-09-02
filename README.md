@@ -91,7 +91,7 @@ There's a 15uF 35V tantalum decoupling capacitor on the input side of the regula
 
 ### More Pictures
 
-A view showing the decoupling caps (the ones for the 40-pin chips are under the sockets), a closeup of the wirewrapping, and then with the I/O port nearly done (74LS245 output port wiring missing).
+A view showing the decoupling caps (the ones for the 40-pin chips are under the sockets), a closeup of the wirewrapping, and then with the I/O port nearly done (LEDs working fine, but 74LS245 input port wiring missing).
 
 ![Image](z80-3.jpg)
 
