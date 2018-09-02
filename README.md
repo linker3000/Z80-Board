@@ -11,6 +11,8 @@ The wirewrapping technique uses standard IC sockets and PCB header pins, so the 
 
 The construction technique can be seen in the photos: rows of header pins are placed alongside each IC socket and the two are solder-bridged on the copper side. Using perfboard, rather than stripboard, means there's no track cutting needed.
 
+*These notes give a very generalised view of the board's construction; an experienced constructor will be able to follow along, however this is a personal build and there was never an intention to write-up full project construction notes for mass replication.*
+
 ![Image](NKZ80montage-small.png)
 
 This Z80 board was inspired by Grant Searle's "9-chip" design - but using a GAL for most of the glue logic takes the chip count to 6! The plan was to build the board in three stages:
@@ -63,7 +65,7 @@ Because 4Mhz parts were used, this board is fitted with a 3.6864Mhz crystal and 
 
 # IO port
 
-**Note:** (02-Sep-2018) I have reworked this port and the design has changed. I will update these notes later. If anyone really is following this board design and making their own, contact me for preliminary. The port described will work, but it overlaps with the SIO chip and can affect oepration of serial port A.
+**Note:** (02-Sep-2018) I have reworked this port and the design has changed; I will update these notes later. If anyone really is following this board design and making their own, contact me for preliminary advice. The port described will work, but it overlaps with the SIO chip and can affect oepration of serial port A.
 
 The I/O circuit is very similar to the digital I/O port of the RC2014 Z80 kit: https://rc2014.co.uk/modules/digital-io/
 
@@ -79,7 +81,7 @@ The port comprises:
 * 1 x 10K resistor
 * 3 x 100nF ceramic decoupling capacitor
 
-Other parts:
+# Other parts
 
 The CF-IDE adaptor (with 40-pin connector) was bought off eBay
 
