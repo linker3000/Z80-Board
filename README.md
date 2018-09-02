@@ -67,7 +67,7 @@ Because 4Mhz parts were used, this board is fitted with a 3.6864Mhz crystal and 
 
 The I/O circuit is very similar to the digital I/O port of the RC2014 Z80 kit: https://rc2014.co.uk/modules/digital-io/
 
-**Note:** (02-Sep-2018) I have reworked this port and the design has changed; I will update these notes later. If anyone really is following this board design and making their own, contact me for preliminary advice. The port wired as per the RC2014 design will work, but it overlaps with the SIO chip at address $00 and can affect operation of serial port A. The new port is at address $08 and is controlled from the GAL (which is now a 22V10) so the 74x138 decoder is not needed.
+**Note:** (02-Sep-2018) I have reworked this port and the design has changed; I will update these notes later. If anyone really is following this board design and making their own, contact me for preliminary advice. The port wired as per the RC2014 design will work, but it overlaps with the SIO chip at address $00 and can affect operation of serial port A. The new port is at address $08 and is controlled from the GAL (which is now a 22V10) so the 74x138 decoder is not needed, and only 2 diodes are used for address control (on the GAL).
 
 The port comprises:
 
