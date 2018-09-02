@@ -61,7 +61,13 @@ The GAL needs programming - I used the low-cost TL866 'universal programmer' (IM
 
 Because 4Mhz parts were used, this board is fitted with a 3.6864Mhz crystal and the serial interface runs at 57,600BPS. If faster spec parts are used then the board should run at the original design clock speed of 7.3728Mhz, with a serial speed of 115,200BPS. You might get away with overclocking a 4Mhz Z80 CPU (YMMV), but the SIO chips are more fussy; a 6Mhz part is apparently OK at the faster speed, but a 4Mhz one is not likely to be happy. 
 
-The I/O port comprises:
+# IO port
+
+**Note:** (02-Sep-2018) I have reworked this port and the design has changed. I will update these notes later. If anyone really is following this board design and making their own, contact me for preliminary. The port described will work, but it overlaps with the SIO chip and can affect oepration of serial port A.
+
+The I/O circuit is very similar to the digital I/O port of the RC2014 Z80 kit: https://rc2014.co.uk/modules/digital-io/
+
+The port comprises:
 
 * 74HCT138 3-to-8 decoder
 * 74LS245 TTL octal bus transceiver (hard wired for input only) 
@@ -83,7 +89,7 @@ There's a 15uF 35V tantalum decoupling capacitor on the input side of the regula
 
 ### More Pictures
 
-A view showing the decoupling caps (the ones for the 40-pin chips are under the sockets), a closeup of the wirewrapping, and then with the I/O port nearly done (74LS245 output port wiring missing); the I/O circuit is very similar to the digital I/O port of the RC2014 Z80 kit: https://rc2014.co.uk/modules/digital-io/
+A view showing the decoupling caps (the ones for the 40-pin chips are under the sockets), a closeup of the wirewrapping, and then with the I/O port nearly done (74LS245 output port wiring missing).
 
 ![Image](z80-3.jpg)
 
