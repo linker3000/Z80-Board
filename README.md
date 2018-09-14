@@ -57,7 +57,7 @@ The core parts are:
 * IC sockets
 * See the schematic for other parts e.g.: the reset circuit, other resistors and connectors. 
 
-NAND gate: This should be a 74HCT part (or can also be a 74AC if you are using a CMOS CPU and SIO). Other types (74LS, 74F etc.) won't oscillate.
+NAND gate: This should be a 74HCT part (or can also be a 74AC if you are using a CMOS CPU and SIO). Other bipolar types (74LS, 74F etc.) won't oscillate.
 
 The GAL needs programming - I used the low-cost TL866 'universal programmer' (IMPORTANT: Untick 'Encrypt Ch' otherwise the GAL may not program correctly). The .JED file is ready to upload to the programmer. If you want to edit/change the source .PLD file, you will need a copy of WinCUPL (free from https://www.microchip.com/design-centers/programmable-logic/spld-cpld/tools/software/wincupl) or another CUPL editor.
 
@@ -88,6 +88,12 @@ The CF-IDE adaptor (with 40-pin connector) was bought off eBay
 The switching voltage regulator is a Murata OKI-78SR-5/1.5-W36-C. These units are pin compatible with the classic 7805 linear regulators, but can supply up to 1.5A without needing a heatsink.
 
 There's a 15uF 35V tantalum decoupling capacitor on the input side of the regulator and a 100uF 16V one on the output.
+
+### USB-Serial adaptor notes
+
+The resistors between the USB-Serial adaptor and the SIO chip reduce the risk of damaging something if the handshake and signal pins are connected but there's no power to the board. Grant's board used 2K7 resistors and this one originally had 1K parts; those worked fine with an FTDI (probably clone) adaptor (left in picture), but the value had to be reduced to 510R for a CH340G-based one (right in picture) to make the port work.
+
+![Image](serial-usb.jpg)
 
 ### More Pictures
 
