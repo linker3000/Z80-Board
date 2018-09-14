@@ -89,6 +89,8 @@ The switching voltage regulator is a Murata OKI-78SR-5/1.5-W36-C. These units ar
 
 There's a 15uF 35V tantalum decoupling capacitor on the input side of the regulator and a 100uF 16V one on the output.
 
+The diode in the voltage regulator input path was originally a 1A part (1N4001), whereas the regulator has a short circuit current limit of 1.5A; in effect, the diode was used as a safety fuse as well as for polarity protection. Later, the diode was replaced with a 3A part eg: 1N54xx.
+
 ### USB-Serial adaptor notes
 
 The resistors between the USB-Serial adaptor and the SIO chip reduce the risk of damaging something if the handshake and signal pins are connected but there's no power to the board. Grant's board used 2K7 resistors and this one originally had 1K parts; those worked fine with an FTDI (probably clone) adaptor (left in picture), but the value had to be reduced to 510R for a CH340G-based one (right in picture) to make the port work.
