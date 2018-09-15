@@ -1,7 +1,7 @@
 # Z80-Board
 A Z80 computer wirewrapped on perfboard.
 
-*This is a work in progress and details are being regularly updated*
+*This is a work in progress and details are being regularly updated.*
 
 The wirewrapping technique uses standard IC sockets and PCB header pins, so the components and wiring are on the same side of the board; this has many benefits:
 
@@ -69,35 +69,39 @@ Because 4Mhz parts were used, this board is fitted with a 3.6864Mhz crystal and 
 
 # I/O port
 
-The I/O circuit is very similar to the digital I/O port of the RC2014 Z80 kit: https://rc2014.co.uk/modules/digital-io/
+The original I/O port design is very similar to the digital I/O port of the RC2014 Z80: https://rc2014.co.uk/modules/digital-io/; because of this, I have not put a separate schematic for it here - but see the note immediately below.
 
-**Note:** (02-Sep-2018) The port has been reworked and the design has changed; I will update these notes later. If anyone really is following this board design and making their own, contact me for preliminary advice. The port built as per the RC2014 design will work, but it overlaps with the SIO chip at address $00 and can affect operation of serial port A. The new port is at address $08 and is controlled from the GAL (which is now a 22V10) so the 74x138 decoder is not needed, and only 2 diodes are used for address control (on the GAL).
+**Note:** (02-Sep-2018) The port for this board has been reworked and the design has changed; I will update these notes later. If anyone really is following this board design and building their own, or using the schematic as the basis of a project, contact me for details. The RC2014 port design will work, but it overlaps with the SIO chip at address $00 and can affect operation of serial port A. The new port is at address $08 and is controlled from the GAL (which is now a 22V10) so the 74x138 decoder is not needed, and only 2 diodes are used for address control (on one input of the GAL).
 
-The (original) port comprises:
+The (original) port comprises the following:
 
-* 74HCT138 3-to-8 decoder
-* 74LS245 TTL octal bus transceiver (hard wired for input only) 
+* 74HCT138 3-to-8 decoder. Not used in the new design.
+* 74LS245 TTL octal bus transceiver 
 * 74F374 octal D-type flip flop driving the LEDs (74LS or HCT374 would be fine)
-* 6 x 1N4148 signal diodes as an address decoding OR gate
+* 6 x 1N4148 signal diodes as an address decoding OR gate. Only 2 used in the new design.
 * 8 x green LEDs
 * 8 x 390 ohm resistors
 * 8 x 2K2 resistors
 * 1 x 10K resistor
-* 3 x 100nF ceramic decoupling capacitor
+* 3 x 100nF ceramic decoupling capacitor. Only 2 used in the new design.
 
 # Other parts
 
 ###Compact Flash Adaptor
 
-The CF-IDE adaptor (with 40-pin connector) was bought off eBay
+The CF-IDE adaptor (with 40-pin connector) was bought off eBay.
 
 ###Voltage regulator
 
-The switching voltage regulator is a Murata OKI-78SR-5/1.5-W36-C. These units are pin compatible with the classic 7805 linear regulators, but can supply up to 1.5A without getting hot. If you do use a 7805, it may need a suitable heatsink.
+The switching voltage regulator is a Murata OKI-78SR-5/1.5-W36-C. These units are pin compatible with the classic 7805 linear regulators, but operate at around 90% efficency and can supply up to 1.5A without needing a heatsink; saving precious board space as well as being energy efficient. The regulators are available from RS Components, Farnell/Element 14, Digikey and Mouser.
 
 There's a 15uF 35V tantalum decoupling capacitor on the input side of the regulator and a 100uF 16V one on the output; these values are not too critical and low ESR electrolytics of around the same capacitance and voltage could be used. The voltage rating of the input capacitor takes into consideration powering the board from a 19-20V laptop adaptor. The Murata regulator can take up to 36V, but if for any reason you decide to use anything close to that voltage, the input capacitor should be a 50V or 63V type. 
 
+If you do use a 7805 linear regulator it will likely need a suitable heatsink - especially if using a supply voltage above 9V - and the decoupling capacitor requirements are different - see the data sheet.
+
 The diode in the voltage regulator input path was originally a 1A part (1N4001), whereas the regulator has a short circuit current limit of 1.5A; in effect, the diode was used as a safety fuse as well as for polarity protection. Later, the diode was replaced with a 3A part eg: 1N54xx.
+
+Due to the dropout voltage of the regulator, plus the protection diode drop, the minimum input voltage for the board is around 8-9V.
 
 ### USB-Serial adaptor notes
 
