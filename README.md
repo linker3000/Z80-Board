@@ -1,6 +1,8 @@
 # Z80-Board
 A Z80 computer wirewrapped on perfboard.
 
+*This is a work in progress and details are being regularly updated*
+
 The wirewrapping technique uses standard IC sockets and PCB header pins, so the components and wiring are on the same side of the board; this has many benefits:
 
 * It's easier to see what you are connecting together.
