@@ -87,11 +87,15 @@ The (original) port comprises:
 
 # Other parts
 
+###Compact Flash Adaptor
+
 The CF-IDE adaptor (with 40-pin connector) was bought off eBay
 
-The switching voltage regulator is a Murata OKI-78SR-5/1.5-W36-C. These units are pin compatible with the classic 7805 linear regulators, but can supply up to 1.5A without needing a heatsink.
+###Voltage regulator
 
-There's a 15uF 35V tantalum decoupling capacitor on the input side of the regulator and a 100uF 16V one on the output.
+The switching voltage regulator is a Murata OKI-78SR-5/1.5-W36-C. These units are pin compatible with the classic 7805 linear regulators, but can supply up to 1.5A without getting hot. If you do use a 7805, it may need a suitable heatsink.
+
+There's a 15uF 35V tantalum decoupling capacitor on the input side of the regulator and a 100uF 16V one on the output; these values are not too critical and low ESR electrolytics of around the same capacitance and voltage could be used. The voltage rating of the input capacitor takes into consideration powering the board from a 19-20V laptop adaptor. The Murata regulator can take up to 36V, but if for any reason you decide to use anything close to that voltage, the input capacitor should be a 50V or 63V type. 
 
 The diode in the voltage regulator input path was originally a 1A part (1N4001), whereas the regulator has a short circuit current limit of 1.5A; in effect, the diode was used as a safety fuse as well as for polarity protection. Later, the diode was replaced with a 3A part eg: 1N54xx.
 
