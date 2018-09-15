@@ -101,7 +101,7 @@ The diode in the voltage regulator input path was originally a 1A part (1N4001),
 
 If you do use a 7805 linear regulator it will likely need a suitable heatsink, especially if using a supply voltage above 9V. The decoupling capacitor requirements are also different from the Murata part, so check the data sheet. 7805 linear regulators have a short circuit current limit of around 250-400mA, depending on manufacturer and exact model; this will be enough to damage parts or make things get hot under fault conditions, so you may want to fit a suitable (1A) fuse or polyfuse if you think your board's going to be treated roughly.
 
-Due to the dropout voltage of the regulator (switched or linear), plus the protection diode drop, the minimum input voltage is around 8-9V.
+Due to the dropout voltage of the regulator (switched or linear), plus the protection diode drop, the minimum board input voltage is around 8-9V.
 
 ### USB-Serial adaptor notes
 
