@@ -87,11 +87,11 @@ The (original) port comprises the following:
 
 # Other parts
 
-###Compact Flash Adaptor
+### Compact Flash Adaptor
 
 The CF-IDE adaptor (with 40-pin connector) was bought off eBay.
 
-###Voltage regulator
+### Voltage regulator
 
 The switching voltage regulator is a Murata OKI-78SR-5/1.5-W36-C. These units are pin compatible with the classic 7805 linear regulators, but operate at around 90% efficency and can supply up to 1.5A without needing a heatsink; saving precious board space as well as being energy efficient. The regulators are available from RS Components, Farnell/Element 14, Digikey and Mouser.
 
@@ -161,6 +161,6 @@ If you implement the simple I/O port, this program controls the LEDs. Written fo
 
 All the above code loads via Tera Term using its copy-and-paste feature or by using Grant Searle's file uploader for CP/M: http://searle.hostei.com/grant/cpm/index.html#InstallingApplications 
 
-Let me know if anything needs further modification...and enjoy some retro gaming!
+Let me know if anything needs further modification...and enjoy some retro computing!
 
 
