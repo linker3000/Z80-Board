@@ -158,9 +158,9 @@ ELIZA
 
 Early AI - Let Eliza sort out your troubles (not to be taken seriously)
 
-NKLED2.PAS
+NKLED2
 
-If you implement the simple I/O port, this program controls the LEDs. Written for Turbo Pascal 3 on CP/M, so you'll need to install that! 
+If you implement the simple I/O port, this program controls the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
 
 ---
 
