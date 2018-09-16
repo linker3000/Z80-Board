@@ -117,14 +117,20 @@ A view showing the decoupling caps (the ones for the 40-pin chips are under the 
 
 ![Image](z80-4.jpg)
 
-![Image](z80-5.jpg)
+![Image](z80-6.jpg)
+This pic shows the 5V switching regulator
 
-The final pics below show the board nearing completion: The CF card adaptor has been wired up together with the 5V switching regulator. The total current consumption with the CF card in place is 175mA with an 8V external supply. The board is now able to boot CP/M:
+The final pics below show the board nearing completion: The CF card adaptor has been wired up together with the 5V switching regulator. The total current consumption with the CF card in place is 175mA with an 8V external supply. The board is now able to boot CP/M. In the final shot, the I/O port chips control signals have been rewired to the GAL22V10 and the address decoder (empty socket at the top of the board) is not needed and has been removed. 
 
 ![Image](board-cf-psu.jpg)
 
+![Image](z80-7.jpg)
+
+---
+## Application Software
+
 ![Image](cpm.png)
-![Image](zork1a.png)
+![Image](zork1a.png).
 ![Image](wordstar.png)
 
 ---
