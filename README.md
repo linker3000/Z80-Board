@@ -121,7 +121,7 @@ A view showing the decoupling caps (the ones for the 40-pin chips are under the 
 
 ![Image](z80-5.jpg)
 
-Finally (below), here's the nearly-complete board. The I/O port chips are now controlled by the GAL22V10 and so the LS138 address decoder (empty socket at the top of the board) is not needed.
+Finally (below), here's the nearly-complete board. The I/O port chips are now controlled by the GAL22V10 and so the LS138 address decoder (empty socket at the top of the board) is not needed - I am going to remove the socket and unneeded components and use the space for two 8-bit headers: One to repeat the output (LEDs) port and one for the main data bus. I also plan to put a header to the right of the CPU for the address bus and main timing signals so that I have a full set of pins for a logic analyzer. The other header at the bottom of the board is for the second serial port on the SIO/0 chip. 
 
 ![Image](z80-7.jpg)
 
