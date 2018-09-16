@@ -95,6 +95,8 @@ The CF-IDE adaptor (with 40-pin connector) was bought off eBay.
 
 The switching voltage regulator is a Murata OKI-78SR-5/1.5-W36-C. These units are pin compatible with the classic 7805 linear regulators, but operate at around 90% efficency and can supply up to 1.5A without needing a heatsink; saving precious board space as well as being energy efficient. The regulators are available from RS Components, Farnell/Element 14, Digikey and Mouser.
 
+![Image](z80-6.jpg)
+
 There's a 15uF 35V tantalum decoupling capacitor on the input side of the regulator and a 100uF 16V one on the output; these values are not too critical and low ESR electrolytics of around the same capacitance and voltage could be used. The voltage rating of the input capacitor allows for powering the board from a 19-20V laptop adaptor. The Murata regulator can take up to 36V  on its input, but if you decide to use anything close to that voltage, the input capacitor should be a 50V or 63V type. 
 
 The diode in the voltage regulator input path was originally a 1A part (1N4001), whereas the Murata regulator can supply up to 1.5A (although it limits short circuit current to 10mA); in effect, the diode was used as a safety fuse as well as for polarity protection. Later, the diode was replaced with a 3A part eg: 1N54xx. 
@@ -119,10 +121,7 @@ A view showing the decoupling caps (the ones for the 40-pin chips are under the 
 
 ![Image](z80-5.jpg)
 
-Finally (below), here's the nearly-complete board. In the final shot, the I/O port chips' control signals have been rewired to the GAL22V10 and the address decoder (empty socket at the top of the board) is not needed. 
-
-![Image](z80-6.jpg)
-This pic shows the 5V switching regulator
+Finally (below), here's the nearly-complete board. The I/O port chips are now controlled by the GAL22V10 and so the LS138 address decoder (empty socket at the top of the board) is not needed.
 
 ![Image](z80-7.jpg)
 
