@@ -136,6 +136,26 @@ Finally (below), here's the nearly-complete board. The I/O port chips are now co
 
 # Bonus Programs
 
+BUNNY
+
+ASCII bunny (well, 'Rabbit' now)
+
+ELIZA
+
+Early AI - Let Eliza sort out your troubles (not to be taken seriously)
+
+MAZE
+
+Draws an ASCII maze (eventually, for big ones!)
+
+NKLED2
+
+If you implement the simple I/O port, this program controls the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
+
+SNAKEnnn.COM
+
+This is a snake/maze game. The original source code was written by Karl A. Brokstad (www.Z80.no) and used with permission. This is a work in progress so don't expect perfection!
+
 SUPER STARTREK
 
 Modified to work on Microsoft Z80 BASIC Ver 4.7b (which boots from ROM). The classic SUPER STARTREK from 1978. The main changes were to restrict line lengths and/or split long lines into multiples, re-writing the conditional statements accordingly, and to remove the print-formatting 'USING' command, which is not supported. 
@@ -146,25 +166,9 @@ If you are after a version that runs on mbasic on CP/M, see: https://github.com/
 
 The main program is STARTREK.BAS. TRKINST.BAS prints the instructions and in the original program was chain-loaded upon request,  but that feature has not been implemented so it's best to just read the source if you need guidance.
 
-MAZE
-
-Draws an ASCII maze (eventually, for big ones!)
-
-BUNNY
-
-ASCII bunny (well, 'Rabbit' now)
-
-ELIZA
-
-Early AI - Let Eliza sort out your troubles (not to be taken seriously)
-
-NKLED2
-
-If you implement the simple I/O port, this program controls the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
-
 ---
 
-All the above code loads via Tera Term using its copy-and-paste feature or by using Grant Searle's file uploader for CP/M: http://searle.hostei.com/grant/cpm/index.html#InstallingApplications 
+All the above code loads via Tera Term using its copy-and-paste feature (MS Basic in BIOS) or by using Grant Searle's file uploader for CP/M: http://searle.hostei.com/grant/cpm/index.html#InstallingApplications 
 
 Let me know if anything needs further modification...and enjoy some retro computing!
 
