@@ -340,5 +340,3 @@ begin
 (* * * * * * * * * * FINISH  * * * * * * * *)
 
 end.
-');
-      repeat until 
