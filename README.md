@@ -3,6 +3,15 @@ A Z80 computer wirewrapped on perfboard.
 
 *This is a work in progress and details are being regularly updated.*
 
+*03-Dec-2018:* This repo has been updated with a revised version of the board and associated files and images. The main changes from the original are:
+
+* I/O port revised and chip select logic removed.
+* GAL20V8 replaced with GAL22V10 to control the select signals for the I/O port.
+* Changes to the signals and address lines routed through the GAL.
+* M1 control signal added to CF/IDE select logic (wasn't used in Grant Searle's design).
+* Second serial port wired up.
+* SIO pin 18 jumper replaced witha direct connection to GND and the pin NOT wired to the header connector.
+
 The wirewrapping technique uses standard IC sockets and PCB header pins, so the components and wiring are on the same side of the board; this has many benefits:
 
 * It's easier to see what you are connecting together.
@@ -52,7 +61,7 @@ The core parts are:
 * TMS27C128-25 EPROM
 * HM628128 1M (128Kx8) SRAM (half-used, as in the original design)
 * 74HCT00 quad NAND gate - see note below 
-* Lattice GAL20V8B-25LP - programmed using a TL866II device programmer/tester
+* Lattice GAL22V10D-10LP (original design used a 20V8) - programmed using a TL866II device programmer/tester
 * Each chip is decoupled by a 100nF ceramic capacitor
 * Lots of male header pins for the wirewrapping
 * Indicator LEDs and resistors (see schematic)
@@ -63,27 +72,26 @@ NAND gate: This should be a 74HCT part (or can also be a 74AC if you are using a
 
 The GAL needs programming - I used the low-cost TL866 'universal programmer' (IMPORTANT: Untick 'Encrypt Ch' otherwise the GAL may not program correctly). The .JED file is ready to upload to the programmer. If you want to edit/change the source .PLD file, you will need a copy of WinCUPL (free from https://www.microchip.com/design-centers/programmable-logic/spld-cpld/tools/software/wincupl) or another CUPL editor.
 
-The GAL chip was later changed to a 22V10 part to provide select pins for the I/O port - see text.
+As of December 2018, the latest firmware for the TL866 and TL866 programmers will program a wider range of GALs. Also note that some of the earlier versions failed to program/verify the 20V8 parts properly, so it's worth checking your software/firmware version is up to date: http://autoelectric.cn/EN/TL866_main.html
 
-Because 4Mhz parts were used, this board is fitted with a 3.6864Mhz crystal and the serial interface runs at 57,600BPS. If faster spec parts are used then the board should run at the original design clock speed of 7.3728Mhz, with a serial speed of 115,200BPS. You might get away with overclocking a 4Mhz Z80 CPU (YMMV), but the SIO chips are more fussy; a 6Mhz part is apparently OK at the faster speed, but a 4Mhz one is not likely to be happy. 
+Because 4MHz parts were used, this board is fitted with a 3.6864Mhz crystal and the serial interface runs at 57,600BPS. If faster spec parts are used then the board should run at the original design clock speed of 7.3728Mhz, with a serial speed of 115,200BPS. You might get away with overclocking a 4Mhz Z80 CPU (YMMV), but the SIO chips are more fussy; a 6Mhz part is apparently OK at the faster speed, but a 4Mhz one is not likely to be happy. 
+
+# SIO chip
+
+I used an SIO/0 chip because I had one to hand. Most Z80 retro designs use the SIO/2 and while either will work, they have subtle wiring differences and so are not plug compatible with each other. The main differences are related to the clock and serial port pins - check out Grant Searle's original schematic to understand how to wire up the circuit for an SIO/2: http://searle.hostei.com/grant/cpm/CPMSchematic1.2.gif
 
 # I/O port
 
-The original I/O port design is very similar to the digital I/O port of the RC2014 Z80: https://rc2014.co.uk/modules/digital-io/; because of this, I have not put a separate schematic for it here - but see the note immediately below.
+The new I/O port design comprises:
 
-**Note:** (02-Sep-2018) The port for this board has been reworked and the design has changed; I will update these notes later. If anyone really is following this board design and building their own, or using the schematic as the basis of a project, contact me for details. The RC2014 port design will work, but it overlaps with the SIO chip at address $00 and can affect operation of serial port A. The new port is at address $08 and is controlled from the GAL (which is now a 22V10) so the 74x138 decoder is not needed, and only 2 diodes are used for address control (on one input of the GAL).
-
-The (original) port comprises the following:
-
-* 74HCT138 3-to-8 decoder. Not used in the new design.
 * 74LS245 TTL octal bus transceiver 
 * 74F374 octal D-type flip flop driving the LEDs (74LS or HCT374 would be fine)
-* 6 x 1N4148 signal diodes as an address decoding OR gate. Only 2 used in the new design.
 * 8 x green LEDs
 * 8 x 390 ohm resistors
 * 8 x 2K2 resistors
-* 1 x 10K resistor
-* 3 x 100nF ceramic decoupling capacitor. Only 2 used in the new design.
+* 2 x 100nF ceramic decoupling capacitors.
+
+The original I/O port design was very similar to the digital I/O port of the RC2014 Z80: https://rc2014.co.uk/modules/digital-io/; however, the mix of Grant Searle and RC2014 design meant that there was an overlap at port address 0x00 between the SIO chip and the port. The updated schematic and GAL22V10 firmware keeps the SIO base at port 0x00 and moves the digital I/O port to 0x08.
 
 # Other parts
 
