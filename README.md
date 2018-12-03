@@ -82,7 +82,9 @@ I used an SIO/0 chip because I had one to hand. Most Z80 retro designs use the S
 
 # I/O port
 
-The new I/O port design comprises:
+![Image](ioport.png)
+
+The  I/O port design comprises:
 
 * 74LS245 TTL octal bus transceiver 
 * 74F374 octal D-type flip flop driving the LEDs (74LS or HCT374 would be fine)
@@ -91,7 +93,7 @@ The new I/O port design comprises:
 * 8 x 2K2 resistors
 * 2 x 100nF ceramic decoupling capacitors.
 
-The original I/O port design was very similar to the digital I/O port of the RC2014 Z80: https://rc2014.co.uk/modules/digital-io/; however, the mix of Grant Searle and RC2014 design meant that there was an overlap at port address 0x00 between the SIO chip and the port. The updated schematic and GAL22V10 firmware keeps the SIO base at port 0x00 and moves the digital I/O port to 0x08.
+The original I/O port design was very similar to the digital I/O port of the RC2014 Z80: https://rc2014.co.uk/modules/digital-io/, however, the mix of designs meant that there was an overlap at port address 0x00 between the SIO chip and the port. The updated schematic and GAL22V10 firmware keeps the SIO base at port 0x00 and moves the digital I/O port to 0x08.
 
 # Other parts
 
