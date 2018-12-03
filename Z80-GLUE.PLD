@@ -1,0 +1,81 @@
+Name     z80-glue;
+PartNo   Z80C;
+Date     03-Nov-2018;
+Revision 05;
+Designer Nigel Kendrick;
+Company  Techmarque;
+Assembly Z80 Computer;
+Location TBD;
+Device   p22v10;
+
+/* Changes this version */
+
+/* Changed to 22V10 to control I/O port too */
+
+
+/***** Z80 Address Decoder ******************************
+ *                 ______________
+ *                |   Z80_Glue   |
+ *       mreq x---|1  I        24|---x Vcc
+ *       iorq x---|2  I      I 23|---x portin
+ *         rd x---|3  I      O 22|---x iowr
+ *         wr x---|4  I      O 21|---x iord
+ *         a3 x---|5  I      O 20|---x memwr
+ *         a4 x---|6  I      O 19|---x memrd
+ *         a5 x---|7  I      O 18|---x ramrom
+ *      a6/a7 x---|8  I      O 17|---x rom
+ *         M1 x---|9  I      O 16|---x sio
+ *        a14 x---|10 I      O 15|---x ide
+ *        a15 x---|11 I      I 14|---x portout
+ *        GND x---|12 I      I 13|---x romdis
+ *                |____22V10_____|
+ */
+/********************************************************/
+/* This device generates chip select signals for Grant  */
+/* Searle's Z80 design                                  */
+/* See:http://searle.hostei.com/grant/cpm/index.html    */
+/* and https://github.com/linker3000/Z80-Board          */
+/********************************************************/
+
+/** Inputs **/
+PIN 1		= mreq;		/* Z80 MREQ (active low) */
+PIN 2		= iorq;		/* Z80 IORQ (active low) */
+PIN 3		= rd;		   	/* Z80 rd (active low)   */
+PIN 4		= wr;			/* Z80 wr (active low)   */
+PIN 5		= a3;                 
+PIN 6		= a4;
+PIN 7		= a5;
+PIN 8		= a67;			/* A6 and A7 through diode OR */
+PIN 9		= m1;
+PIN 10		= a14;
+PIN 11		= a15;
+PIN 13		= romdis;		/* ROM disabled signal */
+
+/** Outputs **/
+PIN 23        = !portrd;		/* 8-bit input port               */		
+PIN 22		= iowr;		/* io write mode (active low)  	*/
+PIN 21		= iord;		/* io read mode (active low)    	*/
+PIN 20 	= memwr;		/* mem write mode (active low)  	*/
+PIN 19		= memrd;		/* mem read mode (active low)   	*/
+PIN 18 	= ramrom;		/* hi = ram, lo = rom operation  	*/
+PIN 17 	= rom;			/* disable rom signal 	     	*/
+PIN 16		= !sio;		/* sio selected (00-07 active low)	*/
+PIN 15 	= !ide;		/* ide selected (10-17 active low)	*/
+PIN 14        = !portwr;		/* LEDs and digital inputs */
+
+/** Logic Equations **/
+iowr		= iorq # wr;
+iord 		= iorq # rd;
+memwr		= mreq # wr;
+memrd		= mreq # rd;
+
+ramrom		= (a14 # a15) # romdis; 
+
+rom		= !(!a67 &  a5 &  a4 &  a3) # iowr;          /* 38-3F */
+sio		=   !a67 & !a5 & !a4 & !a3; 		    /* 00-07 */
+portwr		=   !a67 & !a5 & !a4 &  a3 & !iowr & m1;  /* 08-0F */
+portrd		=   !a67 & !a5 & !a4 &  a3 & !iord & m1;  /* 08-0F */
+/* ide		=   !a67 & !a5 &  a4 & !a3;	*/		   /* 10-17 */
+ide		=   !a67 & !a5 &  a4 & !a3 & m1;
+ 	
+
