@@ -17,7 +17,7 @@ Device   p22v10;
  *                 ______________
  *                |   Z80_Glue   |
  *       mreq x---|1  I        24|---x Vcc
- *       iorq x---|2  I      I 23|---x portin
+ *       iorq x---|2  I      O 23|---x portin
  *         rd x---|3  I      O 22|---x iowr
  *         wr x---|4  I      O 21|---x iord
  *         a3 x---|5  I      O 20|---x memwr
@@ -26,7 +26,7 @@ Device   p22v10;
  *      a6/a7 x---|8  I      O 17|---x rom
  *         M1 x---|9  I      O 16|---x sio
  *        a14 x---|10 I      O 15|---x ide
- *        a15 x---|11 I      I 14|---x portout
+ *        a15 x---|11 I      O 14|---x portout
  *        GND x---|12 I      I 13|---x romdis
  *                |____22V10_____|
  */
