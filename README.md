@@ -10,7 +10,7 @@ A Z80 computer wirewrapped on perfboard.
 * Changes to the signals and address lines routed through the GAL.
 * M1 control signal added to CF/IDE select logic (wasn't used in Grant Searle's design).
 * Second serial port wired up.
-* SIO pin 18 jumper replaced witha direct connection to GND and the pin NOT wired to the header connector.
+* SIO pin 18 jumper replaced with a direct connection to GND and the pin NOT wired to the header connector.
 
 The wirewrapping technique uses standard IC sockets and PCB header pins, so the components and wiring are on the same side of the board; this has many benefits:
 
@@ -158,9 +158,9 @@ MAZE
 
 Draws an ASCII maze (eventually, for big ones!)
 
-NKLED2
+NKLED2/NKLED3
 
-If you implement the simple I/O port, this program controls the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
+If you implement the simple I/O port, these programs control the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
 
 SNAKEnnn.COM
 
