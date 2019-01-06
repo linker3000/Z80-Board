@@ -103,7 +103,7 @@ The CF-IDE adaptor (with 40-pin connector) was bought off eBay.
 
 ### Voltage regulator
 
-The switching voltage regulator is a [Murata OKI-78SR-5/1.5-W36-C](https://power.murata.com/data/power/oki-78sr.pdf). These units are pin compatible with the classic 7805 linear regulators, but operate at around 90% efficency and can supply up to 1.5A without needing a heatsink; saving precious board space as well as being energy efficient. The regulators are available from RS Components, Farnell/Element 14, Digikey and Mouser.
+The switching voltage regulator is a [Murata OKI-78SR-5/1.5-W36-C](https://power.murata.com/data/power/oki-78sr.pdf). These units are pin compatible with the classic 7805 linear regulators, but operate at around 90% efficiency and can supply up to 1.5A without needing a heatsink; saving precious board space as well as being energy efficient. The regulators are available from RS Components, Farnell/Element 14, Digikey and Mouser.
 
 ![Image](z80-6.jpg)
 
