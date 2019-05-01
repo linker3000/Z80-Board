@@ -168,7 +168,7 @@ Note that NKLED3 was created from NKLED2 on an RC2014-type Z80 system (https://r
 
 PORTER
 
-This is a much-expanded version of the LED programs mentioned above. This program can write to a defined I/O port OR to port A or B on a Z80 PIO chip for general port testing or sending patterns to connected LEDs. The program has an interactive menu or can be full driven from the command line. Supplied as both a .com file and the Turbo pascal source code.
+This is a much-expanded version of the LED programs mentioned above. This program can write to a defined I/O port OR to port A or B on a Z80 PIO chip for general port testing or sending patterns to connected LEDs. The program has an interactive menu or can be fully driven from the command line. Supplied as both a .com file and the Turbo pascal source code.
 
 ![Image](porter1.png)
 
