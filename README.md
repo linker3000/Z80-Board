@@ -161,6 +161,7 @@ Draws an ASCII maze (eventually, for big ones!)
 NKLED2/NKLED3
 
 *** See the porter.com program below ***
+
 If you implement the simple I/O port, these programs control the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
 
 Note that NKLED3 was created from NKLED2 on an RC2014-type Z80 system (https://rc2014.co.uk/), so its default port address is 0, as opposed to 8 for the board described here. As the source is provided, the default can easily be changed if you don't fancy entering it on the command line.
@@ -169,7 +170,9 @@ PORTER
 
 This is a much-expanded version of the LED programs mentioned above. This program can write to a defined I/O port OR to port A or B on a Z80 PIO chip for general port testing or sending patterns to connected LEDs. The program has an interactive menu or can be full driven from the command line. Supplied as both a .com file and the Turbo pascal source code.
 
+![Image](porter1.png)
 
+![Image](porter2.png)
 
 SNAKEnnn.COM
 
