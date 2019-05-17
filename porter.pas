@@ -28,11 +28,13 @@ type
   str2   = string[2];
 
 const
-  descStr : str255 = 'Z80 port writer    V1.0 Linker3000 April 2019';
-  hexC    : array[0..15] of char = '0123456789ABCDEF';
+  descStr  : str255 = 'Z80 port writer    V1.0 Linker3000 April 2019';
+  hexC     : array[0..15] of char = '0123456789ABCDEF';
 
                                {Single bit and the Newton patterns...}
-  LED     : array[0..11] of byte = (1,2,4,8,16,32,64,128,129,66,36,24);
+  LED      : array[0..11] of byte = (1,2,4,8,16,32,64,128,129,66,36,24);
+  
+  MBC2Base : byte = 3; {3 = MCP23017 base addr on Z80 MBC2 board}
 
 var
   myStr      : str255;
@@ -41,17 +43,17 @@ var
   I,J        : integer;
   portVal    : integer;
   speed      : integer;
-  portAdd    : integer;
+  {portAdd    : integer;}
   screenMode : boolean;
-  PIOBase    : integer;
-  PIOMode    : boolean;
-  PIOPort    : Byte;
+  portBase   : integer; {Port addr or base addr of control ports}
+  portMode   : Byte; {0 = IO port, 1 = PIO chip, 2 = Z80MBC2 MCP23017}
+  portNum    : Byte; {0 = Port 0/A, 1 = Port 1/B}
 
 procedure init;
 begin
-  PIOBase    := 104;   {SC103 PIO board for RC2014 default = 104 = 0x68}
-  PIOMode    := false; {True if we're using PIO}
-  PIOPort    := 0;     {0 = Port A, 1 = Port B}
+  portBase   := 104;   {SC103 PIO board for RC2014 default = 104 = 0x68}
+  portMode   := 1;     {Default port mode (1 = PIO mode)}
+  portNum    := 0;     {0 = Port A, 1 = Port B}
   speed      := 50;    {Master speed delay}
   portAdd    := 0;     {Default I/O port}
   screenMode := true;  {Interactive menu mode (not cli only)}
@@ -92,24 +94,89 @@ begin
   tohex := S;
 end;
 
-procedure initPIO (portNum : integer);
+procedure initPort;
+{Setup ports for output. Nothing to do for mode 0 (IO write)}
 begin
-  { PIO control port is at PIO base address + 2 + port number (0=A or 1=B) }
-  port[PIOBase+2+portNum] := 207; {Set port control mode - see PIO datasheet}
-  port[PIOBase+2+portNum] := 0;   {All pins set to output}
+  Case portMode of
+
+  1: begin {Z80 PIO chip}
+      { PIO control port is at PIO base address + 2 + port number (0=A or 1=B) }
+       port[portBase+2+portNum] := 207; {Set port control mode - see PIO datasheet}
+       port[portBase+2+portNum] := 0;   {All pins set to output}
+     end;
+     
+  2: begin {MCP23017 on Z80 MBC2}
+
+(* MCP 23017 ports on Z80 MBC2 board:
+ * 
+ * Base   = GPIOA
+ * Base+1 = GPIOB
+ * Base+2 = GPIOA Control port
+ * Base+3 = GPIOB Control port
+
+(*
+3REM Set MCP23017 GPIOB all pins as output (IODIRB=0x00)
+39 OUT 6, 0
+40 REM Set MCP23017 GPIOA 0-1 as output, others as input (IODIRA=0xFC)
+41 OUT 5, 252
+42 REM Set MCP23017 GPIOA 2-7 pull-up resistor on (GPPUA=0xFC)
+43 OUT 7, 252
+45 REM Left Shift user funcion definition
+50 DEF FNLSH(X)=((X*2) AND 255)
+55 REM Init GPIO output ports
+60 OUT 3, 0 : REM Clear MCP23017 GPIOA port
+62 OUT 4, 0 : REM Clear MCP23017 GPIOB port
+64 GOSUB 700 : REM Set slow shift
+68 REM Main
+70 A=1
+80 FOR I=0 TO 7
+90 OUT 4, A : REM Write to MCP23017 GPIOB port
+100 GOSUB 500
+110 A=FNLSH(A)
+120 NEXT I
+130 OUT 4, 0 : REM Clear MCP23017 GPIOB port
+135 A=1
+140 FOR I=0 TO 1
+150 OUT 3, A : REM Write to MCP23017 GPIOA port
+160 GOSUB 500
+170 A=FNLSH(A)
+190 NEXT I
+200 OUT 3, 0 : REM Clear MCP23017 GPIOA port
+210 GOTO 70 : REM Play it again, Sam...
+
+*)
+     end;
+  end;      
 end;
 
 procedure showPortMode;
 begin
   write('Output mode: ');
-  if (PIOMode) then
-  begin
-    write ('Write to port ');
-    if PIOPort = 0 then write ('A (0)') else write ('B (1)');
-    writeln (' of PIO chip at base address ',PIOBase,' ($',ToHex(PIOBase,2),')');
-  end
-  else writeln ('Port write to address ',portAdd, ' ($',toHex(portAdd,2),')');
+  case (portMode) of
+  
+    0 : write ('Port write to address ',portBase,' ($',ToHex(portBase,2),')');
+
+    1 : write ('PIO chip write to port ', chr(portNum+65),
+          '(', portNum,') at address ', portAdd, 
+          ' ($',toHex(portAdd,2),')');
+        
+    2 : write ('Z80 MBC port ', chr(portNum+65),' (', portNum,
+           ') at address ',portBase,' ($',ToHex(portBase,2),')');
+  end;
 end;
+
+procedure setPortAB;
+begin
+  writeln;
+  write('Currently selected port is ');
+  writeln (chr(portNum+65),' (',portNum,')');
+  write ('Specify port A or port B, or press ENTER for no change : ');
+  readln(S);
+  if (S <> '') then
+  begin
+    if upcase(S) = 'B' then portNum := 1 else portNum := 0;
+  end;
+end
 
 procedure setPortMode;
 var
@@ -121,63 +188,62 @@ begin
     clrscr;
     showPortMode;
     writeln;
-    writeln ('There are two modes of operation:');
+    writeln ('There are three modes of operation:');
     writeln;
-    writeln ('Mode 0: Direct port - This mode writes directly to a port location.');
-    writeln ('Mode 1: PIO mode    - This mode writes to port A (0) or B (1) on a Z80 PIO chip.');
+    writeln ('Mode 0: Direct port   - This writes directly to a port location.');
+    writeln ('Mode 1: PIO mode      - This writes to port A (0) or B (1) on a Z80 PIO chip.');
+    writeln ('Mode 2: Z80 MBC2 mode - This writes to the MCP23017 chip, port A (0) or B (1)');
     writeln;
-    writeln;
-    write ('Enter the required mode (0 or 1) or press ENTER when done : ');
+    write ('Enter the required mode (0, 1 or 2) or press ENTER when done : ');
     readln (S);
     writeln;
 
     if (S <> '') then
     begin
-      if S = '1' then PIOMode := true else PIOMode := false;
-
-      if PIOMode then
-      begin
-        writeln('Current PIO base address is ',PIOBase,' ($',toHex(PIObase,2),').');
-        writeln;
-        writeln (' - For the SC103 PIO board for the RC2014 system, the default is 104 ($68).');
-        writeln;
-        writeln ('Specify new PIO base address in decimal or $hex (e.g. 104 or $68)');
-        write   ('or press ENTER for no change : ');
-        readln(S);
-        if (S <> '') then
-        begin
-          val(S,I,dummy);
-          PIOBase := abs(I);
-        end;
-        writeln;
-        write('Currently selected PIO port is ');
-        if PIOPort = 0 then writeln ('A (0)') else writeln ('B (1)');
-
-        write ('Specify port A or port B, or press ENTER for no change : ');
-        readln(S);
-        if (S <> '') then
-        begin
-          if upcase(S) = 'B' then PIOPort := 1 else PIOPort := 0;
-        end;
-      end
-      else
-      begin
-        writeln('The current port address is ',portAdd, ' ($',toHex(portAdd,2),')');
-        writeln;
-        writeln (' - For an RC2014 Digital I/O board the default is 0.');
-        writeln;
-        writeln ('Enter the port address in decimal or $hex (e.g. 16 or $10), or');
-        write ('press ENTER for no change : ');
-        readln(S);
-        if (S <> '') then
-        begin
-          val(S,I,dummy);
-          portAdd := abs(I);
-        end;
-      end;
-    end;
+      Case S of
+      
+      '0' : begin
+              portMode := 0;
+              writeln('The current port address is ',portBase, ' ($',toHex(portBase,2),')');
+              writeln;
+              writeln (' - For an RC2014 Digital I/O board the default is 0.');
+              writeln;
+              writeln ('Enter the port address in decimal or $hex (e.g. 16 or $10), or');
+              write ('press ENTER for no change : ');
+              readln(S);
+              if (S <> '') then
+              begin
+                val(S,I,dummy);
+                portBase := abs(I);
+              end;
+            end;
+      
+      '1' : begin
+              portMode := 1;
+              writeln('Current PIO base address is ',portBase,' ($',toHex(portBase,2),').');
+              writeln;
+              writeln (' - For the SC103 PIO board for the RC2014 system, the default is 104 ($68).');
+              writeln;
+              writeln ('Specify new PIO base address in decimal or $hex (e.g. 104 or $68)');
+              write   ('or press ENTER for no change : ');
+              readln(S);
+              if (S <> '') then
+              begin
+                val(S,I,dummy);
+                portBase := abs(I);
+              end;
+              setPortAB;
+            end;
+             
+      '2' : begin
+              portMode := 2;
+              portBase := MBC2Base; {Default addr of MCP23017 chip}
+              setPortAB;
+            end;    
+      end; {case}
+    end; {if}
   until (S = '');
-  if PIOMode then InitPIO(PIOPort);
+  initPort;
 end;
 
 procedure showPortVal (tPortVal : integer);
@@ -197,10 +263,11 @@ end;
 procedure setPortVal (tportVal : integer);
 begin
   portVal := tportVal; {Tracks the value sent to the port}
-  if PIOMode then
-    port [PIObase + PIOPort] := portVal
+{FIX FOR MBC2}
+  if portMode = 1 then
+    port [portBase + portNum] := portVal
   else
-    port[portAdd] := portVal;
+    port[portBase] := portVal;
   showPortVal(portVal);
 end;
 
@@ -314,8 +381,7 @@ end;
 Procedure helpPage;
 begin
   ClrScr;
-  writeln ('This program writes bytes to an I/O port or Z80 PIO port (A or B)');
-  writeln;
+  writeln ('This program writes bytes to an I/O port or Z80 PIO port (A or B).');
   writeln ('You can specify the exact byte you want written, or use the menu');
   writeln ('to choose a static or dynamic bit pattern.');
   writeln;
@@ -327,14 +393,15 @@ begin
   writeln ('<program_name> -H OR -Mmode -Aport# -P[a|b] -Snnn -V[value or letter]');
   writeln;
   writeln ('Where: -H prints this help.');
-  writeln ('       -M is output mode: 0 = Port, 1 = PIO. (If used must be the 1st option.)');
+  writeln ('       -M is output mode: 0 = Port, 1 = Z80 PIO, 2 = Z80 MBC2.');
+  writeln ('           (If used must be the 1st option.)');
   writeln ('       -A is the IO port or PIO base address in decimal or $hex.');
   writeln ('       -P is PIO port A or B (0 or 1).');
   writeln ('       -Snnn is a speed number (50 is the default).');
   writeln ('       -V is the value to write OR a menu letter for a pattern.');
   writeln ('          If a -V value is given, the program runs on the command');
   writeln ('          line and does not start the interactive menu. If this option');
-  writeln ('          is used it must be the last one on the command line.');
+  writeln ('          is used it must be the last one on the line.');
   writeln;
   write ('Press any key to continue ');
   repeat until keypressed;
@@ -412,18 +479,18 @@ begin
               helpPage;
             end;
 
-      'A' : if PIOMode then PIOBase := V else portAdd := V;
+      'A' : if portMode then portBase := V else portAdd := V;
 
       'M' : if (S2[1] = '0') then
             begin
-              PIOmode := false;
+              portMode := false;
            end
            else
            begin
-             if (S2[1] = '1') then PIOmode := true;
+             if (S2[1] = '1') then portMode := true;
            end;
 
-      'P' : if (S2[1] = 'B') or (S2[1] = '1') then PIOPort := 1 else PIOPort := 0;
+      'P' : if (S2[1] = 'B') or (S2[1] = '1') then portNum := 1 else portNum := 0;
 
       'S' : speed := V;
 
@@ -431,7 +498,7 @@ begin
               screenMode := false;
               if upcase(S2[1]) in ['H','N','L','C','W','U','F','R','P'] then
               begin
-                if (PIOMode and (upcase(S2[1]) <> 'H')) then InitPIO(PIOPort);
+                if (portMode and (upcase(S2[1]) <> 'H')) then InitPIO(portNum);
                 doAction(S2[1]);
               end
               else if (V < 256) then
@@ -439,7 +506,7 @@ begin
                 writeln (descStr);
                 writeln;
                 showPortMode;
-                if PIOMode then InitPIO(PIOPort);
+                if portMode then InitPIO(portNum);
                 setPortVal(V);
               end;
             end;
@@ -459,7 +526,7 @@ begin
 
     myStr := '0';
     myNum := 0;
-    if PIOMode then InitPIO(PIOPort);
+    initPort; {Initialise I/O port}
   end
   else myNum := -1; {We're in CLI mode so nothing else to do/show}
 
