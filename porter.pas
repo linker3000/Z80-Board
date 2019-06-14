@@ -6,7 +6,7 @@ program porter;
 
    Supports IO write, Z80 PIO chip and Z80MBC2 optional ports.
 
-   This version: 1.1 14 May 2019 Turbo Pascal
+   This version: 1.11 14 Jun 2019 Turbo Pascal
 
    Author: N. Kendrick (linker3000@gmail.com)
 
@@ -96,7 +96,7 @@ begin
   Case portMode of
 
   1: begin {Z80 PIO chip}
-       if (portMode =1) then port[portBase+2+portNum] := 207; {PIO port control mode}
+       port[portBase+2+portNum] := 207; {PIO port control mode}
        port[portBase+2+portNum] := 0; {All pins = output}
      end;
 
