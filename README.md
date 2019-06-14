@@ -1,16 +1,7 @@
 # Z80-Board
 A Z80 computer wirewrapped on perfboard.
 
-*This is a work in progress and details are being regularly updated.*
-
-*03-Dec-2018:* This repo has been updated with a revised version of the board and associated files and images. The main changes from the original are:
-
-* I/O port revised and chip select logic removed.
-* GAL20V8 replaced with GAL22V10 to control the select signals for the I/O port.
-* Changes to the signals and address lines routed through the GAL.
-* M1 control signal added to CF/IDE select logic (wasn't used in Grant Searle's design).
-* Second serial port wired up.
-* SIO pin 18 jumper replaced with a direct connection to GND and the pin NOT wired to the header connector.
+*Last change 14 Jun 2019:* Minor code tidy to porter.pas program - no functional changes. 
 
 The wirewrapping technique uses standard IC sockets and PCB header pins, so the components and wiring are on the same side of the board; this has many benefits:
 
