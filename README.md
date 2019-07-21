@@ -153,7 +153,7 @@ Draws an ASCII maze (eventually, for big ones!)
 
 NKLED3
 
-If you implement the simple I/O port, these programs control the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
+If you implement the simple I/O port, this program controls the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
 
 See also: https://github.com/linker3000/z80porter 
 
