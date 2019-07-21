@@ -86,6 +86,8 @@ The  I/O port design comprises:
 
 The original I/O port design was very similar to the digital I/O port of the RC2014 Z80: https://rc2014.co.uk/modules/digital-io/, however, the mix of designs meant that there was an overlap at port address 0x00 between the SIO chip and the port. The updated schematic and GAL22V10 firmware keeps the SIO base at port 0x00 and moves the digital I/O port to 0x08.
 
+Use the *z80porter* program to test port output: https://github.com/linker3000/z80porter 
+
 # Other parts
 
 ### Compact Flash Adaptor
