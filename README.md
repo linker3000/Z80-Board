@@ -151,13 +151,11 @@ MAZE
 
 Draws an ASCII maze (eventually, for big ones!)
 
-NKLED2/NKLED3
-
-*** See the porter.com program below ***
+NKLED3
 
 If you implement the simple I/O port, these programs control the LEDs. Written for Turbo Pascal 3 on CP/M. Compiled program and source code provided. 
 
-Note that NKLED3 was created from NKLED2 on an RC2014-type Z80 system (https://rc2014.co.uk/), so its default port address is 0, as opposed to 8 for the board described here. As the source is provided, the default can easily be changed if you don't fancy entering it on the command line.
+See also: https://github.com/linker3000/z80porter 
 
 PORTER
 
