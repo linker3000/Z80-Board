@@ -157,14 +157,6 @@ If you implement the simple I/O port, this program controls the LEDs. Written fo
 
 See also: https://github.com/linker3000/z80porter 
 
-PORTER
-
-This CP/M program can write a range of binary patterns to the specified destination port or I/O chip; it's great for port testing or sending patterns to LEDs. The program has an interactive menu or can be fully driven from the command line. Supplied as both a .com file and the Turbo pascal source code. The program works with I/O mapped ports (e.g.: the RC2014 digital I/O board), the Z80 PIO chip (e.g.: the SC103 PIO board for the RC2014 architecture) and the Z80-MBC2 board fitted with an MCP23017 GPIO expander chip.
-
-![Image](porter1.png)
-
-![Image](porter2.png)
-
 SNAKE.PAS
 
 This is a snake/maze game written in Turbo Pascal. The original source code was written by Karl A. Brokstad (www.Z80.no) and used with permission. This is a work in progress so don't expect perfection!
