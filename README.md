@@ -1,7 +1,7 @@
-# Z80-Board
+# Z80-Board (and Programs)
 A Z80 computer wirewrapped on perfboard.
 
-*Last change 14 Jun 2019:* Minor code tidy to porter.pas program - no functional changes. 
+*Last change 21 Jul 2019:* Fixed small bug in snake. Removed version number from file name.. 
 
 The wirewrapping technique uses standard IC sockets and PCB header pins, so the components and wiring are on the same side of the board; this has many benefits:
 
@@ -165,9 +165,9 @@ This CP/M program can write a range of binary patterns to the specified destinat
 
 ![Image](porter2.png)
 
-SNAKEnnn.COM
+SNAKE.PAS
 
-This is a snake/maze game. The original source code was written by Karl A. Brokstad (www.Z80.no) and used with permission. This is a work in progress so don't expect perfection!
+This is a snake/maze game written in Turbo Pascal. The original source code was written by Karl A. Brokstad (www.Z80.no) and used with permission. This is a work in progress so don't expect perfection!
 
 SUPER STARTREK
 
