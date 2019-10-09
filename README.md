@@ -45,7 +45,9 @@ More pictures here: https://imgur.com/a/rGRR2NM
 
 # Components
 
-The core parts are:
+I sourced most of the components from my own warehouse (ie: various storage bins and boxes of parts!) - in fact the project was inspired by coming across the processor and thinking 'hey, I did't know I had that'!
+
+The main parts of my build are:
 
 * Mostek MK3880N-4 (4Mhz Z80 CPU - NMOS)
 * Zilog Z80SIO/0 (Z8440AB1 - NMOS)
@@ -63,7 +65,7 @@ NAND gate: This should be a 74HCT part (or can also be a 74AC if you are using a
 
 The GAL needs programming - I used the low-cost TL866 'universal programmer' (IMPORTANT: Untick 'Encrypt Ch' otherwise the GAL may not program correctly). The .JED file is ready to upload to the programmer. If you want to edit/change the source .PLD file, you will need a copy of WinCUPL (free from https://www.microchip.com/design-centers/programmable-logic/spld-cpld/tools/software/wincupl) or another CUPL editor.
 
-As of December 2018, the latest firmware for the TL866 and TL866 programmers will program a wider range of GALs. Also note that some of the earlier versions failed to program/verify the 20V8 parts properly, so it's worth checking your software/firmware version is up to date: http://autoelectric.cn/EN/TL866_main.html
+As of December 2018, the latest firmware for the TL866 and TL866 programmers will program a wider range of GALs. Also note that some of the earlier firmware versions failed to program/verify some GAL types properly, so it's worth checking your software/firmware version is up to date: http://autoelectric.cn/EN/TL866_main.html
 
 Because 4MHz parts were used, this board is fitted with a 3.6864Mhz crystal and the serial interface runs at 57,600BPS. If faster spec parts are used then the board should run at the original design clock speed of 7.3728Mhz, with a serial speed of 115,200BPS. You might get away with overclocking a 4Mhz Z80 CPU (YMMV), but the SIO chips are more fussy; a 6Mhz part is apparently OK at the faster speed, but a 4Mhz one is not likely to be happy. 
 
@@ -75,16 +77,16 @@ I used an SIO/0 chip because I had one to hand. Most Z80 retro designs use the S
 
 ![Image](ioport.png)
 
-The  I/O port design comprises:
+The I/O port is an add-on to complement Grant's design; it comprises:
 
 * 74LS245 TTL octal bus transceiver 
-* 74F374 octal D-type flip flop driving the LEDs (74LS or HCT374 would be fine)
+* 74F374 octal D-type flip flop driving the LEDs (74LS or HCT374 would be fine. I used what I had to hand)
 * 8 x green LEDs
 * 8 x 390 ohm resistors
 * 8 x 2K2 resistors
 * 2 x 100nF ceramic decoupling capacitors.
 
-The original I/O port design was very similar to the digital I/O port of the RC2014 Z80: https://rc2014.co.uk/modules/digital-io/, however, the mix of designs meant that there was an overlap at port address 0x00 between the SIO chip and the port. The updated schematic and GAL22V10 firmware keeps the SIO base at port 0x00 and moves the digital I/O port to 0x08.
+The I/O port design is based on the digital I/O port of the RC2014 Z80: https://rc2014.co.uk/modules/digital-io/, however, mixing two designs meant that there was a conflict at address 0x00, which was already in use by the SIO chip. To fix this I updated the GAL firmware, keeping the SIO chip based at port 0x00 and moving the digital I/O port to 0x08.
 
 Use the *z80porter* program to test port output: https://github.com/linker3000/z80porter 
 
@@ -173,8 +175,6 @@ The main program is STARTREK.BAS. TRKINST.BAS prints the instructions and in the
 
 ---
 
-All the above code loads via Tera Term using its copy-and-paste feature (MS Basic in BIOS) or by using Grant Searle's file uploader for CP/M: http://searle.hostei.com/grant/cpm/index.html#InstallingApplications 
+All the above code loads via Tera Term using its copy-and-paste feature, but you may need to increase the inter-line and inter-character delays - I used 4mS for reliable transfers, or by using Grant Searle's file uploader for CP/M: http://searle.hostei.com/grant/cpm/index.html#InstallingApplications 
 
 Let me know if anything needs further modification...and enjoy some retro computing!
-
-
