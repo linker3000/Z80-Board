@@ -71,7 +71,7 @@ Because 4MHz parts were used, this board is fitted with a 3.6864Mhz crystal and 
 
 # SIO chip
 
-I used an SIO/0 chip because I had one to hand. Most Z80 retro designs use the SIO/2 and while either will work, they have subtle wiring differences and so are not plug compatible with each other. The main differences are related to the clock and serial port pins - check out Grant Searle's original schematic to understand how to wire up the circuit for an SIO/2: http://searle.hostei.com/grant/cpm/CPMSchematic1.2.gif
+I used an SIO/0 chip because I had one to hand. Most Z80 retro designs use the SIO/2 and while either will work, they have subtle wiring differences and so are not plug compatible with each other. The main differences are related to the clock and serial port pins - check out Grant Searle's original schematic to understand how to wire up the circuit for an SIO/2: http://searle.x10host.com/cpm/CPMSchematic1.2.gif
 
 # I/O port
 
@@ -175,6 +175,6 @@ The main program is STARTREK.BAS. TRKINST.BAS prints the instructions and in the
 
 ---
 
-All the above code loads via Tera Term using its copy-and-paste feature, but you may need to increase the inter-line and inter-character delays - I used 4mS for reliable transfers, or by using Grant Searle's file uploader for CP/M: http://searle.hostei.com/grant/cpm/index.html#InstallingApplications 
+All the above code loads via Tera Term using its copy-and-paste feature, but you may need to increase the inter-line and inter-character delays - I used 4mS for reliable transfers, or by using Grant Searle's file uploader for CP/M: http://searle.x10host.com/cpm/index.html#InstallingApplications
 
 Let me know if anything needs further modification...and enjoy some retro computing!
