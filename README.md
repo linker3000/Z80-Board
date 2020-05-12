@@ -29,7 +29,7 @@ The first pics show the board at stage 1.
 
 For more details of what the board can do, and how to setup the compact flash card and CP/M, see Grant's original documentation:
 
-http://searle.hostei.com/grant/cpm/index.html
+http://searle.x10host.com/cpm/index.html (Link updated May 2020. NB: Grant's main site is now at: http://searle.wales/)
 
 In the early stages the board was powered via the USB-to-TTL serial adapter, drawing a current of about 170mA - which is probably pushing the poor thing a tad. My adapter often reset when plugged in; probably due to the inrush current. Substituting CMOS parts for the CPU and SIO will reduce supply current; using a CMOS Z80 brings the load down to 100mA.
 
