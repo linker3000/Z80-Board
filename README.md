@@ -61,7 +61,7 @@ The main parts of my build are:
 * IC sockets
 * See the schematic for other parts e.g.: the reset circuit, other resistors and connectors. 
 
-NAND gate: This should be a 74HCT part (or can also be a 74AC if you are using a CMOS CPU and SIO). Other bipolar types (74LS, 74F etc.) won't oscillate.
+NAND gate: This should be a 74HCT part (or can also be a 74AC if you are using a CMOS CPU and SIO). Other bipolar types (74LS, 74F etc.) won't work in this circuit because the waveform produced doesn't meet the Z80's clock signal voltage swing requirements.
 
 The GAL needs programming - I used the low-cost TL866 'universal programmer' (IMPORTANT: Untick 'Encrypt Ch' otherwise the GAL may not program correctly). The .JED file is ready to upload to the programmer. If you want to edit/change the source .PLD file, you will need a copy of WinCUPL (free from https://www.microchip.com/design-centers/programmable-logic/spld-cpld/tools/software/wincupl) or another CUPL editor.
 
