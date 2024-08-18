@@ -54,7 +54,7 @@ The main parts of my build are:
 * TMS27C128-25 EPROM
 * HM628128 1M (128Kx8) SRAM (half-used, as in the original design)
 * 74HCT00 quad NAND gate - see note below 
-* Lattice GAL22V10D-10LP (my original design used a 20V8) - programmed using a TL866II device programmer/tester
+* Lattice GAL22V10D-10LP - programmed using a TL866II device programmer/tester
 * Each chip is decoupled by a 100nF ceramic capacitor
 * Lots of male header pins for the wirewrapping
 * Indicator LEDs and resistors (see schematic)
